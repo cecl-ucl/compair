@@ -7,9 +7,9 @@
         </div>
 
         <div class="col-sm-8 col-lg-9">
-            <h1>ComPAIR Learning Application</h1>
-            <p class="intro-text">Welcome to the ComPAIR tool! With this tool,
-                <span ng-show="!canAddCourse">you will show your understanding of course content by answering the assignments posted by your instructor and then comparing pairs of your peers' answers and offering constructive feedback on how they can improve.</span>
+            <h1>Crowdsourcig Language Assessmet Project</h1>
+            <p class="intro-text">Welcome to the CLAP homepage,
+                <span ng-show="!canAddCourse">On this platform, you will be able to flex your language skills by evaluating written productions. We've made it simple for you: just compare the two texts we present you and let us know which one you think is better. That's it.</span>
                 <span ng-show="canAddCourse">you can 1) post assignments for students to answer, 2) see how students compare and offer feedback on pairs of their peers' answers, and 3) give individual feedback to each student or to the class as a whole.</span>
             </p>
         </div>
@@ -18,7 +18,7 @@
 
     <div class="row">
 
-        <h2 class="col-sm-6"><span ng-if="!canManageUsers">Your</span> <span ng-if="canManageUsers">ComPAIR's</span> {{courseFilters.period}} <span ng-if="courseFilters.includeSandbox">sandbox</span> courses</h2>
+        <h2 class="col-sm-6"><span ng-if="!canManageUsers">Your</span> <span ng-if="canManageUsers">ComPAIR's</span> {{courseFilters.period}} <span ng-if="courseFilters.includeSandbox">sandbox</span> assessment projects</h2>
 
         <form class="col-sm-6 search-courses text-right" role="search" ng-if="!canManageUsers && canAddCourse && (courses.length || courseFilters.search || courseFilters.period!==null)">
             <div class="input-group">
@@ -69,7 +69,7 @@
     </div>
     
     <!-- REMOVE AFTER LTI UPGRADE -->
-    <p class="alert text-muted" ng-show="!canAddCourse">If you don't see the course(s) you expect below: 1) check your registration in the course (for example, see if you have access to the course in Canvas) and contact <a href="https://it.ubc.ca/got-question-about-it-products-and-support#helpdesk" target="_blank">UBC IT support</a> to register, then 2) if your course has a Canvas site, click the ComPAIR link from there once. For further help, contact <a href="mailto:compair.support@ubc.ca" target="_self">ComPAIR technical support</a>.</p>
+    <p class="alert text-muted" ng-show="!canAddCourse">If you don't see the language assessment project(s) you expect below, please contact our team at: <a href="mailto:clap-admin@uclouvain.be" target="_blank">CLAP admin</a> Don't forget that it can take up to 24 hours after registration for all of your projects to appear on your CLAP homepage. </p>
 
     <!-- Course listing -->
     <div class="course-list" ng-if="courses.length">
@@ -92,7 +92,8 @@
                     </a>
 
                     <!-- Metadata -->
-                    <ul class="list-inline course-metadata-list">
+                    <div style="height: 20px;" />
+                    <ul class="list-inline course-metadata-list" style="display: none;">
                         <course-metadata name="editLink"></course-metadata>
                         <course-metadata name="duplicateLink"></course-metadata>
                         <course-metadata name="assignmentCount"></course-metadata>
