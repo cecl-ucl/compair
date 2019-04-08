@@ -43,6 +43,7 @@ ERROR_404_HELP = False
 PERMANENT_SESSION_LIFETIME = 3600 * 24
 
 # set celery tasks
+CELERY_ALWAYS_EAGER = 1 #disable background tasks to allow for user import through csv file
 CELERY_RESULT_BACKEND = None
 CELERY_BROKER_URL = None
 CELERY_ACCEPT_CONTENT = ['json', 'msgpack', 'yaml']
