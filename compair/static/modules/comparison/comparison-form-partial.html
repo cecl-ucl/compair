@@ -5,7 +5,6 @@
     <p class="intro-text">
         For each round, decide which of the two texts you think is of a higher quality than the other, and then select and submit your decision at the bottom of the page.
         Please note <strong>comparisons are not saved</strong> until you submit your choice.
-        However, you may manually save a draft of the round below.
     </p>
 
     <p class="assignment-toggle"><a href="" ng-click="showAssignment = !showAssignment">
@@ -156,7 +155,7 @@
                             <i class="fa fa-arrow-down"></i>
                         </label>
                         <textarea id="answer1_feedback" ng-if="comparison.id || preview"
-                            ng-model="answer1_feedback.content" rows="8" ckeditor="editor1Options" ng-required="{{!canManageAssignment}}">
+                            ng-model="answer1_feedback.content" rows="8" ckeditor="editor1Options">
                         </textarea>
                     </div>
 
@@ -166,7 +165,7 @@
                             <i class="fa fa-arrow-down"></i>
                         </label>
                         <textarea id="answer2_feedback" ng-if="comparison.id || preview"
-                            ng-model="answer2_feedback.content" rows="8" ckeditor="editor2Options" ng-required="{{!canManageAssignment}}">
+                            ng-model="answer2_feedback.content" rows="8" ckeditor="editor2Options">
                         </textarea>
                     </div>
                 </fieldset>
