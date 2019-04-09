@@ -1,10 +1,10 @@
 <div class="evaluate-screen">
 
-    <h1>Compare Answer Pairs</h1>
+    <h1>Compare Text Pairs</h1>
 
     <p class="intro-text">
-        For each round, choose which answer better matches the criteria below, give helpful feedback on both answers in the pair, and submit the comparison.
-        Please note <strong>comparisons are not automatically saved</strong> as you type.
+        For each round, decide which of the two texts you think is of a higher quality than the other, and then select and submit your decision at the bottom of the page.
+        Please note <strong>comparisons are not saved</strong> until you submit your choice.
         However, you may manually save a draft of the round below.
     </p>
 
@@ -32,9 +32,9 @@
             <span class="h4">(Comparison must be submitted before deadline to be accepted)</span>
         </div>
 
-        <h2 class="col-md-6">Answer pair</h2>
+        <h2 class="col-md-6">Text pair</h2>
         <h2 class="col-md-6 text-right rounds"><span ng-hide="comparisonError" class="label label-warning">
-            Round {{current}} <span ng-if="!canManageAssignment">/ {{total}}</span>
+            Round {{current}} <span style="display: none;" ng-if="!canManageAssignment">/ {{total}}</span>
         </h2>
 
         <div ng-show="comparisonError" class="alert alert-info" role="alert">
@@ -112,9 +112,9 @@
 
             <hr />
 
-            <h3>2) Give detailed feedback to the author of each answer</h3>
+            <h3 style="display: none;">2) Give detailed feedback to the author of each answer</h3>
 
-            <div class="row sub-step">
+            <div class="row sub-step" style="display: none;" >
 
                 <div class="intro-text" ng-if="assignment.peer_feedback_prompt">
                     <div mathjax hljs ng-bind-html="assignment.peer_feedback_prompt"></div>
@@ -147,7 +147,7 @@
                 </div>
             </div>
 
-            <div class="row sub-step">
+            <div class="row sub-step" style="display: none;">
                 <fieldset>
                     <legend>Peer Feedback</legend>
                     <div class="col-md-6">
