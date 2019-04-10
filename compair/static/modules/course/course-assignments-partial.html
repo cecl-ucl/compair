@@ -29,7 +29,7 @@
 
     <div class="row">
         <div class="col-md-12" ng-if="!canManageAssignment">
-            <p class="intro-text">For each assignment below, you will first submit your own answer. Then you will compare pairs of anonymous peer answers. Try to make your answer as strong as possible, since your peers will also read and compare it anonymously with other answers.</p>
+            <p class="intro-text">Click the link below to begin assessing texts. You will be presented with pairs of anonymous texts to compare. Thanks again for your participation in CLAP!</p>
         </div>
         <div class="col-md-12" ng-if="canManageAssignment">
             <p class="intro-text">For each assignment below, students will first submit their own answer. Then they will compare pairs of anonymous peer answers. Finally, they will read feedback received from peers. The anonymity of this feedback depends on what you instruct students to use as a display name in their profile, but you and your teaching team will always see who wrote what.</p>
@@ -43,7 +43,7 @@
         </div>
 
         <div class="col-lg-7 col-sm-6 text-right">
-            <form class="form-inline searchCourse" role="search" ng-show="assignments.length">
+            <form style="display: none;" class="form-inline searchCourse" role="search" ng-show="assignments.length">
                 <div class="form-group filter" id="assignment-filter">
                     <label>Show: &nbsp;</label>
                     <select ng-model="filter" chosen ng-options="f for f in filters"></select>
@@ -73,7 +73,7 @@
             <div class="media-body">
 
                 <!-- Name -->
-                <a ng-href="#/course/{{course.id}}/assignment/{{assignment.id}}">
+                <a ng-href="#/course/{{courseId}}/assignment/{{assignment.id}}/compare">
                     <h3 class="media-heading">
                         <i class="fa fa-comments"></i>{{assignment.name}} &raquo;
                     </h3>
@@ -89,13 +89,13 @@
                     <assignment-metadata name="editLink"></assignment-metadata>
                     <assignment-metadata name="duplicateLink"></assignment-metadata>
                     <assignment-metadata name="answerCount"></assignment-metadata>
-                    <assignment-metadata name="answerCountEmpty"></assignment-metadata>
+                    <assignment-metadata style="display: none;" name="answerCountEmpty"></assignment-metadata>
                     <assignment-metadata name="compareCount"></assignment-metadata>
                     <assignment-metadata name="feedbackCount"></assignment-metadata>
-                    <assignment-metadata name="feedbackCountEmpty"></assignment-metadata>
+                    <assignment-metadata style="display: none;" name="feedbackCountEmpty"></assignment-metadata>
                     <assignment-metadata name="completedFeedback"></assignment-metadata>
-                    <assignment-metadata name="missedFeedback"></assignment-metadata>
-                    <assignment-metadata name="missingFeedback"></assignment-metadata>
+                    <assignment-metadata style="display: none;" name="missedFeedback"></assignment-metadata>
+                    <assignment-metadata style="display: none;" name="missingFeedback"></assignment-metadata>
                     <assignment-metadata name="assignmentScheduled"></assignment-metadata>
                     <assignment-metadata name="periodLabel"></assignment-metadata>
                     <assignment-metadata name="assignmentCompleted"></assignment-metadata>
@@ -107,7 +107,7 @@
         </div>
 
         <!-- Assignment Actions -->
-        <div class="col-sm-3 text-right action-btns">
+        <div style="display: none;" class="col-sm-3 text-right action-btns">
             <assignment-action-button name="answer"></assignment-action-button>
             <assignment-action-button name="finishAnswer"></assignment-action-button>
             <assignment-action-button name="compare"></assignment-action-button>

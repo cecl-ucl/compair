@@ -1,11 +1,11 @@
 <div class="login-screen">
     <div ng-show="!showCreateUserForm">
-        <h1 class="text-center">Welcome to ComPAIR</h1>
+        <h1 class="text-center">Welcome to CLAP</h1>
         <div class="row">
             <form name="loginForm" class="form" ng-class="{'col-sm-6': LoginConfigurableHTML.addition_instructions}"
                   ng-submit="submit()" novalidate>
                 <fieldset>
-                    <div ng-if="AuthTypesEnabled.cas || AuthTypesEnabled.saml">
+                    <div ng-if="AuthTypesEnabled.cas || AuthTypesEnabled.saml" style="display: none;">
                         <h2>Log in with your CWL here:</h2>
                         <a id="cwl_login" href="/api/saml/login" ng-if="AuthTypesEnabled.saml" ng-bind-html="LoginConfigurableHTML.saml">
                             <img class="center-block" src="https://www.auth.cwl.ubc.ca/CWL_login_button.gif" width="76" height="25" alt="CWL Login" border="0">
@@ -15,10 +15,12 @@
                         </a>
                     </div>
 
-                    <hr ng-if="AuthTypesEnabled.app && (AuthTypesEnabled.cas || AuthTypesEnabled.saml)" />
-
+                    <hr ng-if="AuthTypesEnabled.app && (AuthTypesEnabled.cas || AuthTypesEnabled.saml)" style="display: none;" />
+                    <div style="text-align: center;"> #add CLAP logo
+                        <compair-logo type="'large'"></compair-logo>
+                    </div>
                     <div ng-show="AuthTypesEnabled.app">
-                        <h2 ng-if="AuthTypesEnabled.cas || AuthTypesEnabled.saml">Or use a ComPAIR account:</h2>
+                        <h2 ng-if="AuthTypesEnabled.cas || AuthTypesEnabled.saml">Log in here with your CLAP account:</h2>
                         <h2 ng-if="!AuthTypesEnabled.cas && !AuthTypesEnabled.saml && !AuthTypesEnabled.demo">Log in with your ComPAIR account:</h2>
                         <h2 ng-if="!AuthTypesEnabled.cas && !AuthTypesEnabled.saml && AuthTypesEnabled.demo">Select the account type you want to demo:</h2>
                         <p class="text-center" ng-if="AuthTypesEnabled.demo">
@@ -33,7 +35,7 @@
                             <a href="" ng-click="showAppLogin = !showAppLogin">
                                 <i class="fa fa-chevron-down" ng-show="showAppLogin"></i>
                                 <i class="fa fa-chevron-right" ng-hide="showAppLogin"></i>
-                                <span id="app-login-toggle" ng-if="!AuthTypesEnabled.demo">Log in with existing account</span>
+                                <span id="app-login-toggle" ng-if="!AuthTypesEnabled.demo">Click here to log in to CLAP</span>
                                 <span id="app-login-toggle" ng-if="AuthTypesEnabled.demo">Or log in with existing demo account</span>
                             </a>
                             <span ng-show="allowCreateUser">&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="" ng-click="showCreateUserForm = true">Create new account</a></span>
@@ -41,14 +43,14 @@
                         <div ng-show="showAppLogin">
                             <div class="form-group has-feedback"
                                 ng-class="{'has-error': loginForm.username.$invalid, 'has-success': loginForm.username.$valid}">
-                                <label for="inputUser" class="required-star">ComPAIR Username</label>
+                                <label for="inputUser" class="required-star">CLAP Username</label>
                                 <input type="text" id="inputUser" name="username"
                                     ng-model="username" required placeholder=""
                                     class="form-control">
                             </div>
                             <div class="form-group has-feedback"
                                 ng-class="{'has-error': loginForm.password.$invalid, 'has-success': loginForm.password.$valid}">
-                                <label for="inputPass" class="required-star">ComPAIR Password</label>
+                                <label for="inputPass" class="required-star">CLAP Password</label>
                                 <span ng-if="AuthTypesEnabled.demo">(Default: <i>demo</i>)</span>
                                 <input type="password" id="inputPass" name="password" ng-model="password" required
                                         placeholder="" class="form-control">

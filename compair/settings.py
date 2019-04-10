@@ -43,6 +43,7 @@ ERROR_404_HELP = False
 PERMANENT_SESSION_LIFETIME = 3600 * 24
 
 # set celery tasks
+CELERY_ALWAYS_EAGER = 1 #disable background tasks to allow for user import through csv file
 CELERY_RESULT_BACKEND = None
 CELERY_BROKER_URL = None
 CELERY_ACCEPT_CONTENT = ['json', 'msgpack', 'yaml']
@@ -95,16 +96,16 @@ SAML_LOGIN_ENABLED = False
 LTI_LOGIN_ENABLED = True
 
 LOGIN_ADDITIONAL_INSTRUCTIONS_HTML = """
-<h3>For course access issues, please check:</h3>
+<h3>Welcome to the CLAP homepage. See below for more information:</h3>
 <dl>
-    <dt>Are you registered in the course that is using this application?</dt>
-        <dd>For example, see if you have access to the course in Canvas. If you aren't registered, contact <a href="https://it.ubc.ca/got-question-about-it-products-and-support#helpdesk" target="_blank">UBC IT support</a>.</dd>
-    <dt>Did you click the ComPAIR link from Canvas at least once?</dt>
-        <dd>If your course has a Canvas site, click the ComPAIR link from there once. This action enrols you in the ComPAIR course.</dd>
+    <dt>Log in to your CLAP account with your username and password.</dt>
+        <dd>Your CLAP account username and password are enclosed in the CLAP Registration Confirmation email.</dd>
+    <dt>After logging in, you will see the list of courses you are enrolled in, corresponding to the languages you indicated you are interested in rating texts for (English/French/Dutch).</dt>
+        <dd>>Choose the language you wish to rate texts for, select the text assessment activity, and begin CLAPing!</dd>
     <dt>Are you using a modern browser?</dt>
         <dd>Supported browsers for this application include <a href="https://www.mozilla.org/en-US/firefox/new/" target="_blank">Firefox</a>, <a href="http://www.google.com/chrome/" target="_blank">Chrome</a>, <a href="https://www.apple.com/ca/safari/" target="_blank">Safari</a>, and <a href="http://windows.microsoft.com/en-ca/internet-explorer/download-ie" target="_blank">IE9+</a>.</dd>
-    <dt>Did you answer 'yes' to all the troubleshooting questions above?</dt>
-        <dd>Contact <a href="mailto:compair.support@ubc.ca" target="_self">ComPAIR technical support</a> for help.</dd>
+    <dt>Do you have questions or comments for us?</dt>
+        <dd>Contact <a href="mailto:clap-admin@uclouvain.be" target="_self">CLAP Admin</a> for help.</dd>
 </dl>
 """
 
@@ -147,10 +148,10 @@ EXPOSE_EMAIL_TO_INSTRUCTOR = False
 EXPOSE_THIRD_PARTY_USERNAMES_TO_INSTRUCTOR = False
 
 # Control which profile information a student can edit
-ALLOW_STUDENT_CHANGE_NAME = True
-ALLOW_STUDENT_CHANGE_DISPLAY_NAME = True
-ALLOW_STUDENT_CHANGE_STUDENT_NUMBER = True
-ALLOW_STUDENT_CHANGE_EMAIL = True
+ALLOW_STUDENT_CHANGE_NAME = FALSE
+ALLOW_STUDENT_CHANGE_DISPLAY_NAME = FALSE
+ALLOW_STUDENT_CHANGE_STUDENT_NUMBER = FALSE
+ALLOW_STUDENT_CHANGE_EMAIL = FALSE
 
 # Allow impersonation
 IMPERSONATION_ENABLED = True
